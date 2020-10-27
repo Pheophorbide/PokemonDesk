@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Pheophorbide/PokemonDesk.git",
-  "author": "Найдикова Дарья Константиновна",
+  "author": "Дарья daria.paramonova@gmail.com",
   "scripts": {
     "build.dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build.prod": "env NODE_ENV=production webpack --config webpack.config.js",
