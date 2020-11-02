@@ -1,3 +1,5 @@
 .node_mpdules/
 .idea/
 dist/
+
+src/**.d.ts
