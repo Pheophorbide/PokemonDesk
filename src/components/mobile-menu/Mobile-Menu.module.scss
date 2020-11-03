@@ -1,0 +1,42 @@
+@import 'src/styles/variables';
+
+.menu {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  font-size: 27px;
+  line-height: 32px;
+  left: -100%;
+  transition: left 0.5s ease;
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  border-radius: 0 0 16px 16px;
+  padding: 40px 0 44px;
+
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.open {
+  left: 0;
+  right: 0;
+}
+
+.item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.logo {
+  margin-bottom: 40px;
+
+  & svg {
+    height: 51px;
+  }
+}

@@ -1,0 +1,33 @@
+@import 'src/styles/variables';
+
+.footer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 23px 37px;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 33px 120px;
+  }
+}
+
+.item {
+  font-weight: bold;
+
+  &:first-child {
+    font-weight: normal;
+
+    @media (min-width: $tablet) {
+      order: 2;
+    }
+  }
+}

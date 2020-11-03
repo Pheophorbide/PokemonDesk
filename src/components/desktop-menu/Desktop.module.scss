@@ -1,0 +1,19 @@
+@import 'src/styles/variables';
+
+.menu {
+  display: none;
+
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}
+
+.item {
+  font-size: 19px;
+  line-height: 22px;
+  color: inherit;
+  text-decoration: none;
+  padding: 0 35px;
+}

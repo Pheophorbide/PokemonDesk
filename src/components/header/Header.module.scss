@@ -1,0 +1,18 @@
+@import 'src/styles/variables';
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 27px 11px;
+
+  @media (min-width: $tablet) {
+    box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
+    padding: 24px 50px 28px 20px;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 25px 140px 25px 160px;
+  }
+}

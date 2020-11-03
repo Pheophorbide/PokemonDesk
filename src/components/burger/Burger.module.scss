@@ -1,0 +1,12 @@
+@import 'src/styles/variables';
+
+.burger {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
