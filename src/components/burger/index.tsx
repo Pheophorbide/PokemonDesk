@@ -1,5 +1,5 @@
 import React from 'react';
-import BurgerIcon from '../../svg/burger.svg';
+import { ReactComponent as BurgerIcon } from '../../svg/burger.svg';
 
 import styles from './Burger.module.scss';
 

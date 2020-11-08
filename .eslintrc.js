@@ -13,7 +13,11 @@ module.exports = {
   },
   plugins: ['prettier', 'prettier', 'react', '@typescript-eslint'],
   rules: {
+    'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    'no-shadow': 'off',
+    'jsx-a11y/click-events-have-key-events': 0,
+    'react/jsx-fragments': 'off',
     'no-console': 'error',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'import/extensions': [
@@ -26,6 +30,7 @@ module.exports = {
         jsx: 'never',
       },
     ],
+    'import/no-unresolved': [2, { caseSensitive: false }],
   },
   settings: {
     'import/resolver': {
