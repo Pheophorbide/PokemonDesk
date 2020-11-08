@@ -1,0 +1,16 @@
+@import 'src/styles/variables';
+
+.logo {
+  & svg {
+    height: 26px;
+    width: auto;
+
+    @media (min-width: $tablet) {
+      height: 45px;
+    }
+
+    @media (min-width: $desktop) {
+      height: 63px;
+    }
+  }
+}

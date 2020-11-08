@@ -1,0 +1,16 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+}
