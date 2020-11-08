@@ -8,15 +8,15 @@ type MenuItemType = {
   path: string;
 };
 
-type DesktopMenuType = {
+interface DesktopMenuType {
   menu: MenuItemType[];
-};
+}
 
-const DesktopMenu = ({ menu }: DesktopMenuType) => (
+const DesktopMenu: React.FC<DesktopMenuType> = ({ menu }) => (
   <div className={styles.menu}>
     {menu &&
       menu.map(({ title, path }) => (
-        <NavLink className={styles.item} to={path}>
+        <NavLink key={title} className={styles.item} to={path} activeClassName={styles.active}>
           {title}
         </NavLink>
       ))}
