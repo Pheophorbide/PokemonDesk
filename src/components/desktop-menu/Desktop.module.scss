@@ -1,4 +1,4 @@
-@import 'src/styles/variables';
+@import '../../styles/variables';
 
 .menu {
   display: none;
@@ -11,9 +11,35 @@
 }
 
 .item {
+  position: relative;
   font-size: 19px;
   line-height: 22px;
   color: inherit;
   text-decoration: none;
-  padding: 0 35px;
+  margin-right: 70px;
+
+  &:last-child {
+    margin: 0;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1%;
+    opacity: 0;
+    border: 1px solid $dark;
+    border-radius: 6px;
+    transition: opacity, width 0.25s ease-in-out;
+  }
+
+  &:hover,
+  &.active {
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
 }
