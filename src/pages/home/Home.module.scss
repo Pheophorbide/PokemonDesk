@@ -1,5 +1,13 @@
 @import '../../styles/_variables.scss';
 
+.root {
+  flex-grow: 1;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .content {
   max-width: 506px;
 }
@@ -18,7 +26,4 @@
   margin: 0 0 64px;
   font-size: 32px;
   line-height: 37px;
-}
-
-.contentParalax {
 }

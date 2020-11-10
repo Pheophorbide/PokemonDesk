@@ -1,26 +1,32 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { A, usePath } from 'hookrouter';
+import classnames from 'classnames';
+import { MenuItemType } from '../../routes';
 
 import styles from './Desktop.module.scss';
-
-type MenuItemType = {
-  title: string;
-  path: string;
-};
 
 interface DesktopMenuType {
   menu: MenuItemType[];
 }
 
-const DesktopMenu: React.FC<DesktopMenuType> = ({ menu }) => (
-  <div className={styles.menu}>
-    {menu &&
-      menu.map(({ title, path }) => (
-        <NavLink key={title} className={styles.item} to={path} activeClassName={styles.active}>
-          {title}
-        </NavLink>
-      ))}
-  </div>
-);
+const DesktopMenu: React.FC<DesktopMenuType> = ({ menu }) => {
+  const path = usePath();
+
+  return (
+    <div className={styles.menu}>
+      {menu &&
+        menu.map(({ title, link }) => (
+          <A
+            key={title}
+            className={classnames(styles.item, {
+              [styles.active]: path === link,
+            })}
+            href={link}>
+            {title}
+          </A>
+        ))}
+    </div>
+  );
+};
 
 export default DesktopMenu;

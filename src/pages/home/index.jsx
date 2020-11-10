@@ -1,18 +1,19 @@
-import React, { Fragment } from 'react';
-import { withRouter } from 'react-router';
+import React from 'react';
+import { navigate } from 'hookrouter';
+import Layout from '../../components/layout';
 import Button from '../../components/button';
 import Parallax from '../../components/parallax';
 import Heading, { HeaderType } from '../../components/heading';
 
 import styles from './Home.module.scss';
 
-const HomePage = ({ history }) => {
+const HomePage = () => {
   function onClick() {
-    history.push('/pokedex');
+    navigate('/pokedex');
   }
 
   return (
-    <Fragment>
+    <Layout className={styles.root} color="yellow">
       <div className={styles.content}>
         <Heading type={HeaderType.h1}>
           <b>Find</b> all your favorite <b>Pokemon</b>
@@ -23,8 +24,8 @@ const HomePage = ({ history }) => {
         <Button onClick={onClick}>See pokemons</Button>
       </div>
       <Parallax />
-    </Fragment>
+    </Layout>
   );
 };
 
-export default withRouter(HomePage);
+export default HomePage;

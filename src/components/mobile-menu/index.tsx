@@ -1,14 +1,10 @@
 import React, { MouseEventHandler } from 'react';
-import { NavLink } from 'react-router-dom';
+import { A, usePath } from 'hookrouter';
 import classnames from 'classnames';
+import { MenuItemType } from '../../routes';
 import Logo from '../logo';
 
 import styles from './Mobile-Menu.module.scss';
-
-type MenuItemType = {
-  title: string;
-  path: string;
-};
 
 interface MobileMenuType {
   menu: MenuItemType[];
@@ -16,16 +12,20 @@ interface MobileMenuType {
   onClick: MouseEventHandler<HTMLDivElement>;
 }
 
-const MobileMenu: React.FC<MobileMenuType> = ({ menu, isOpen, onClick }) => (
-  <div className={classnames(styles.menu, { [styles.open]: isOpen })}>
-    <Logo className={styles.logo} onClick={onClick} />
-    {menu &&
-      menu.map(({ title, path }) => (
-        <NavLink className={styles.item} key={path} to={path}>
-          {title}
-        </NavLink>
-      ))}
-  </div>
-);
+const MobileMenu: React.FC<MobileMenuType> = ({ menu, isOpen, onClick }) => {
+  const path = usePath();
+
+  return (
+    <div className={classnames(styles.menu, { [styles.open]: isOpen })}>
+      <Logo className={styles.logo} onClick={onClick} />
+      {menu &&
+        menu.map(({ title, link }) => (
+          <A className={classnames(styles.item, { [styles.active]: path === link })} key={title} href={link}>
+            {title}
+          </A>
+        ))}
+    </div>
+  );
+};
 
 export default MobileMenu;
