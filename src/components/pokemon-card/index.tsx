@@ -31,7 +31,12 @@ const PokemonCard: React.FC<PokemonCardInterface> = ({ name, stats: { attack, de
           </div>
         </div>
         <div className={styles.labelWrap}>
-          {types && types.map((type) => <span className={styles.label}>{type}</span>)}
+          {types &&
+            types.map((type) => (
+              <span key={type} className={styles.label}>
+                {type}
+              </span>
+            ))}
         </div>
       </div>
       <div className={styles.pictureWrap}>

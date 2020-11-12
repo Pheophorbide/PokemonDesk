@@ -223,7 +223,9 @@ const Pokedex = () => (
     <Heading type={HeaderType.h3} className={styles.title}>
       800 Pokemons for you to choose your favorite
     </Heading>
-    <div className={styles.content}>{pokemons && pokemons.map((pokemon) => <PokemonCard {...pokemon} />)}</div>
+    <div className={styles.content}>
+      {pokemons && pokemons.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)}
+    </div>
   </Layout>
 );
 
