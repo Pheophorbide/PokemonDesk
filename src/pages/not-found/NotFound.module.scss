@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.title {
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  margin: 0 0 42px;
+  color: white;
+  z-index: 1;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  background: $danger;
+
+  &:after {
+    content: '404';
+    position: absolute;
+    font-weight: bold;
+    font-size: 700px;
+    line-height: 818px;
+    letter-spacing: 4px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.img {
+  z-index: 1;
+}

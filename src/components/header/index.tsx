@@ -3,27 +3,9 @@ import Logo from '../logo';
 import Burger from '../burger';
 import MobileMenu from '../mobile-menu';
 import DesktopMenu from '../desktop-menu';
+import { GENERAL_MENU } from '../../routes';
 
 import styles from './Header.module.scss';
-
-const MENU = [
-  {
-    title: 'Home',
-    path: '/home',
-  },
-  {
-    title: 'Pokedex',
-    path: '/pokedex',
-  },
-  {
-    title: 'Legendarios',
-    path: '/legendarios ',
-  },
-  {
-    title: 'Documentacion',
-    path: '/documentacion ',
-  },
-];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,11 +20,11 @@ const Header = () => {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <Logo />
-          <DesktopMenu menu={MENU} />
+          <DesktopMenu menu={GENERAL_MENU} />
           <Burger onClick={menuVisibilityToggle} />
         </div>
       </div>
-      <MobileMenu isOpen={isOpen} menu={MENU} onClick={menuVisibilityToggle} />
+      <MobileMenu isOpen={isOpen} menu={GENERAL_MENU} onClick={menuVisibilityToggle} />
     </div>
   );
 };

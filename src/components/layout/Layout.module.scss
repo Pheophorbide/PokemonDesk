@@ -1,0 +1,19 @@
+@import '../../styles/_variables.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.yellow {
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+}

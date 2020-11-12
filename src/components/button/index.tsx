@@ -15,9 +15,9 @@ export enum ColorTypes {
 
 interface ButtonInterface {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  size: SizeTypes;
-  color: ColorTypes;
-  isWide: boolean;
+  size?: SizeTypes;
+  color?: ColorTypes;
+  isWide?: boolean;
 }
 
 const Button: React.FC<ButtonInterface> = ({ children, onClick, size, color, isWide }) => (
