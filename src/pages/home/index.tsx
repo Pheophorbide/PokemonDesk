@@ -4,12 +4,13 @@ import Layout from '../../components/layout';
 import Button from '../../components/button';
 import Parallax from '../../components/parallax';
 import Heading, { HeaderType } from '../../components/heading';
+import { LinkEnum } from '../../routes';
 
 import styles from './Home.module.scss';
 
 const HomePage = () => {
   function onClick() {
-    navigate('/pokedex');
+    navigate(LinkEnum.POKEDEX);
   }
 
   return (

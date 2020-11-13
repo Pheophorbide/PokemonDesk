@@ -1,12 +1,13 @@
 import React from 'react';
 import { navigate } from 'hookrouter';
 import Button, { ColorTypes } from '../../components/button';
+import { LinkEnum } from '../../routes';
 
 import styles from './NotFound.module.scss';
 
 const NotFound = () => {
   function onClick() {
-    navigate('/');
+    navigate(LinkEnum.HOME);
   }
 
   return (

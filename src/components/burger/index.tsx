@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ReactComponent as BurgerIcon } from '../../svg/burger.svg';
 
 import styles from './Burger.module.scss';
@@ -13,4 +13,4 @@ const Burger = ({ onClick }: BurgerType) => (
   </button>
 );
 
-export default Burger;
+export default memo(Burger);

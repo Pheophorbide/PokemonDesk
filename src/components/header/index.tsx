@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import Logo from '../logo';
 import Burger from '../burger';
 import MobileMenu from '../mobile-menu';
@@ -29,4 +29,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

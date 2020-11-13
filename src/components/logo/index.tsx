@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classnames from 'classnames';
 import { ReactComponent as LogoIcon } from '../../svg/logo.svg';
 
@@ -20,4 +20,4 @@ Logo.defaultProps = {
   onClick: () => null,
 };
 
-export default Logo;
+export default memo(Logo);
