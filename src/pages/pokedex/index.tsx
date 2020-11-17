@@ -6,7 +6,7 @@ import Heading, { HeaderType } from '../../components/heading';
 import styles from './Pokedex.module.scss';
 
 const usePokemons = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -44,12 +44,10 @@ const Pokedex = () => {
   return (
     <Layout className={styles.root}>
       <Heading type={HeaderType.h3} className={styles.title}>
-        {data.total} Pokemons for you to choose your favorite
+        {data?.total || 0} Pokemons for you to choose your favorite
       </Heading>
       <div className={styles.content}>
-        {data.pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} {...pokemon} />
-        ))}
+        {data?.pokemons && data?.pokemons.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)}
       </div>
     </Layout>
   );
