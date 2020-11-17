@@ -4,29 +4,36 @@ import Pokedex from './pages/pokedex';
 
 export type MenuItemType = {
   title: string;
-  link: string;
+  link: LinkEnum;
   component: () => JSX.Element;
 };
+
+export enum LinkEnum {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  LEGENDARIOS = '/legendarios',
+  DOCUMENTATION = 'legendarios',
+}
 
 export const GENERAL_MENU: MenuItemType[] = [
   {
     title: 'Home',
-    link: '/',
+    link: LinkEnum.HOME,
     component: () => <HomePage />,
   },
   {
     title: 'Pokedex',
-    link: '/pokedex',
+    link: LinkEnum.POKEDEX,
     component: () => <Pokedex />,
   },
   {
     title: 'Legendarios',
-    link: '/legendarios ',
+    link: LinkEnum.LEGENDARIOS,
     component: () => <Fragment />,
   },
   {
     title: 'Documentacion',
-    link: '/documentacion ',
+    link: LinkEnum.DOCUMENTATION,
     component: () => <Fragment />,
   },
 ];

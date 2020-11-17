@@ -4,6 +4,7 @@ import Heading, { HeaderType } from '../Heading';
 import styles from './PokemonCard.module.scss';
 
 interface PokemonCardInterface {
+  id: number;
   name: string;
   stats: {
     attack: number;

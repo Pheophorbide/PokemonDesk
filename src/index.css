@@ -12,3 +12,10 @@ body {
 body {
   font-family: Karla, sans-serif;
 }
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

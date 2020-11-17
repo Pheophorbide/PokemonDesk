@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import styles from './Footer.module.scss';
 
@@ -14,4 +14,4 @@ const Footer = () => (
   </div>
 );
 
-export default Footer;
+export default memo(Footer);
