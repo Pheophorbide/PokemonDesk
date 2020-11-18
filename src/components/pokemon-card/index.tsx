@@ -3,7 +3,7 @@ import Heading, { HeaderType } from '../Heading';
 
 import styles from './PokemonCard.module.scss';
 
-interface PokemonCardInterface {
+export interface PokemonCardInterface {
   id: number;
   name: string;
   stats: {
