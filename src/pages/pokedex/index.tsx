@@ -2,19 +2,31 @@ import React, { useState } from 'react';
 import Layout from '../../components/layout';
 import PokemonCard, { PokemonCardInterface } from '../../components/pokemon-card';
 import Heading, { HeaderType } from '../../components/heading';
+import useDebounce from '../../hook/useDebounce';
+// @ts-ignore
 import useData from '../../hook/getData';
 
 import styles from './Pokedex.module.scss';
 
+export interface IPokedex {
+  total: string;
+  pokemons: PokemonCardInterface[];
+}
+
+interface IQuery {
+  name?: string;
+}
+
 const Pokedex = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState({});
-  const { data, isLoading } = useData('getPokemons', query, [searchValue]);
+  const [query, setQuery] = useState<IQuery>({});
+  const debounceValue = useDebounce(searchValue, 500);
+  const { data, isLoading } = useData<IPokedex>('getPokemons', query, [debounceValue]);
 
   function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue(event.target.value);
-    setQuery((s) => ({
-      ...s,
+    setQuery((state: IQuery) => ({
+      ...state,
       name: event.target.value,
     }));
   }

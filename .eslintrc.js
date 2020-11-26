@@ -19,6 +19,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     'react/jsx-fragments': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'no-param-reassign': 'off',
     'no-console': 'error',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
     'import/extensions': [
