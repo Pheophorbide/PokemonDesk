@@ -1,20 +1,42 @@
 @import '../../styles/variables';
 
 .root {
-  max-width: 1125px;
-  margin: 0 auto;
+  padding: 20px;
+
+  @media (min-width: $desktop) {
+    width: 1125px;
+    padding: 0;
+    margin: 0 auto;
+  }
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-
-  @media (min-width: $tablet) {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 }
 
 .title {
   text-align: center;
+}
+
+.search {
+  margin-bottom: 40px;
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: $dark;
+  padding: 8px 18px;
+  width: 100%;
+  background: $white;
+  box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+  border-radius: 40px;
+
+  @media (min-width: $desktop) {
+    padding: 18px 31px;
+  }
 }

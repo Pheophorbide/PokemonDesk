@@ -1,53 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/layout';
-import PokemonCard from '../../components/pokemon-card';
+import PokemonCard, { PokemonCardInterface } from '../../components/pokemon-card';
 import Heading, { HeaderType } from '../../components/heading';
+import useData from '../../hook/getData';
 
 import styles from './Pokedex.module.scss';
 
-const usePokemons = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons?limit=20');
-        const result = await response.json();
-        setData(result);
-        setIsError(false);
-      } catch (e) {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isLoading,
-    isError,
-  };
-};
-
 const Pokedex = () => {
-  const { data, isLoading, isError } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const [query, setQuery] = useState({});
+  const { data, isLoading } = useData('getPokemons', query, [searchValue]);
 
-  if (isLoading) return <div>isLoading...</div>;
-  if (isError) return <div>isError...</div>;
+  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchValue(event.target.value);
+    setQuery((s) => ({
+      ...s,
+      name: event.target.value,
+    }));
+  }
 
   return (
     <Layout className={styles.root}>
       <Heading type={HeaderType.h3} className={styles.title}>
-        {data?.total || 0} Pokemons for you to choose your favorite
+        {(!isLoading && data?.total) || 0} Pokemons for you to choose your favorite
       </Heading>
+      <div className={styles.search}>
+        <input
+          placeholder="Encuentra tu pokémon..."
+          className={styles.input}
+          type="text"
+          value={searchValue}
+          onChange={handleSearchChange}
+        />
+      </div>
       <div className={styles.content}>
-        {data?.pokemons && data?.pokemons.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)}
+        {!isLoading &&
+          data?.pokemons?.map((pokemon: PokemonCardInterface) => <PokemonCard key={pokemon.id} {...pokemon} />)}
       </div>
     </Layout>
   );
